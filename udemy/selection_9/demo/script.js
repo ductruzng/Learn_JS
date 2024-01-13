@@ -48,6 +48,25 @@ const restaurant = {
     }
 };
 
+const flights =
+    '_Delayed_Departure;fao93766109;txl2133758440;11:25'
+    + '+_Arrival;bru0943384722;fao93766109;11:45'
+    + '+_Delayed_Arrival;hel7439299980;fao93766109;12:05'
+const getCode = str => str.slice(0, 3).toUpperCase()
+
+for (const flight of flights.split('+')) {
+    const [type, from, to, time] = (flight.split(';'))
+    const output = `${type.startsWith('_Delayed') ? '🔴' : ''}${type.replaceAll('_', ' ')} from ${getCode(from)} to ${getCode(to)} (${time.replace(':', 'h')})`
+    console.log(output.padStart(44))
+}
+
+
+
+
+/*
+/////////////////////////////////////////////
+// Working with strings - part 3
+
 console.log('a+very+nice+string'.split('+'))
 console.log('Jonas Schmedmann'.split(' '))
 
@@ -84,7 +103,7 @@ console.log(maskCreditCard(6868686832))
 console.log(maskCreditCard(433074783248623486))
 console.log(maskCreditCard('43296986473652398632946234'))
 
-// Repeat 
+// Repeat
 const message2 = 'Bad waether... All Departues Delayed...\n'
 console.log(message2.repeat(5))
 

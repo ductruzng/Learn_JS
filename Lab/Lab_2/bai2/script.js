@@ -1,7 +1,7 @@
 const UDtCC = (text) => {
     const [first, second] = text.toLowerCase().split('_');
     const textCC = first + second.replace(second[0], second[0].toUpperCase())
-    console.log(textCC)
+    console.log(textCC.padEnd(20))
 
 }
 UDtCC('underscore_case')
