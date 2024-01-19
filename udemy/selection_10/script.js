@@ -66,6 +66,9 @@ checkIn(flight,trung)
 
 */
 
+/*
+----------------------------------------------
+// Functions Accepting Callback Functions
 const oneWord = (str) => {
     return str.replace(/ /g,'').toLowerCase()
 }
@@ -92,5 +95,52 @@ const high5 = () =>{
 }
 
 document.body.addEventListener('click',high5)
+*/
 
-['Jonas','Martha','Adam'].forEach(high5)
+/*
+-------------------------------------
+// Functions Returning Functions
+const greet = (greating) => {
+    return (name) => {
+        console.log(`${greating} ${name}`)
+    }
+}
+
+const greaterHey = greet('Hey')
+
+greaterHey('Jonas')
+greaterHey('Truzng')
+
+greet('Hello')('Trung')
+
+//Challenge 
+const greetArr = greeting => name => console.log(`${greeting} ${name}`)
+
+greetArr('Hiii')('Trung')
+*/
+
+const runOnce = () => {
+    console.log('This will never run again')
+}
+runOnce();
+
+//IIFE
+(function() {
+    console.log('This will never run again')
+    const isPrivate = 23
+})();
+// console.log(isPrivate)
+
+(() => console.log('This will ALSO never run again'))();
+
+{
+    const isPrivate =23
+    var notPrivate = 46
+}
+
+// console.log(isPrivate)
+console.log(notPrivate)
+
+
+
+
